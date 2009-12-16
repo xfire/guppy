@@ -4,6 +4,12 @@
 import types
 import inspect
 
+__all__ = ['NoAssertion',
+           'isInstanceOf',
+           'hasAttributes',
+           'hasMethods',
+           'implementProtocol']
+
 def NoAssertion(obj):
     return True
 

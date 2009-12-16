@@ -1,3 +1,5 @@
+__all__ = ['Protocol', 'Component']
+
 class Protocol(object):
     "Symbolic base class for protocols"
 
