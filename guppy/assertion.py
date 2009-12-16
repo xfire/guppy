@@ -10,12 +10,13 @@ __all__ = ['NoAssertion',
            'hasMethods',
            'implementProtocol']
 
+
 def NoAssertion(obj):
     return True
 
 
 def isInstanceOf(*classes):
-    return lambda obj : isinstance(obj, classes)
+    return lambda obj: isinstance(obj, classes)
 
 
 def hasAttributes(*attributes):
@@ -46,10 +47,10 @@ def implementProtocol(protocols):
 
     def test(obj):
         for protocol in protocols:
-            for fname in [n for n, f in inspect.getmembers(protocol) if callable(f)]:
+            for fname in [n for n, f in inspect.getmembers(protocol)
+                          if callable(f)]:
                 func = getattr(obj, fname, None)
                 if not callable(func):
                     return False
         return True
     return test
-

@@ -5,7 +5,8 @@
 import os
 import sys
 import glob
-import unittest, doctest
+import unittest
+import doctest
 
 def get_path(dirname):
     op = os.path

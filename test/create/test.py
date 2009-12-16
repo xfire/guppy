@@ -8,10 +8,9 @@ class TestCreate(unittest.TestCase):
                 "Provider" : Component("provider.concrete_provider.ConcreteProvider"),
                 "provider.concrete_provider.const" : 23,
                         })
-        
+
         const = components["Consumer"].run()
         self.assertEqual(const, 23)
 
 if __name__ == "__main__":
     unittest.main()
-        
