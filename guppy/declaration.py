@@ -9,14 +9,20 @@ class RequiredFeature(object):
     def __init__(self, feature, assertion = NoAssertion):
         self.feature = feature
         self.assertion = assertion
+        self.cache = None
 
     def __get__(self, obj, T):
-        return self.request()
+        return self._get()
 
     def get(self):
-        return self.request()
+        return self._get()
 
-    def request(self):
+    def _get(self):
+        if self.cache == None:
+            self.cache = self._request()
+        return self.cache
+
+    def _request(self):
         obj = features[self.feature]
         assert self.assertion(obj), \
                 "The value %r of %r does not match the specified criteria" \
