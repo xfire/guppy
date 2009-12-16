@@ -42,7 +42,7 @@ def NoAssertion(obj):
 
 
 def isInstanceOf(*classes):
-    return lambda: isinstance(obj, classes)
+    return lambda obj : isinstance(obj, classes)
 
 
 def hasAttributes(*attributes):
