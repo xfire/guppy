@@ -9,7 +9,6 @@ class TestBasics(unittest.TestCase):
         class Consumer(object):
             theTruth = guppy.RequiredFeature('constant', guppy.isInstanceOf(int))
 
-            
         consumer = Consumer()
         self.assertEqual(consumer.theTruth, 23)
 
