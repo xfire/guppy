@@ -2,6 +2,7 @@
 # vim:syntax=python:sw=4:ts=4:expandtab
 
 from broker import features
+import traceback
 
 class Component(object):
     def __init__(self, class_name):
@@ -9,14 +10,16 @@ class Component(object):
 
 def load_code(path):
     parts = path.split('.')
+    module_name = '.'.join(parts[:-1])
+    attribute_name = parts[-1]
+
     try:
-        module = '.'.join(parts[:-1])
-        module = __import__(module, {}, {}, module)
+        module = __import__(module_name, {}, {}, module_name)
         return getattr(module, parts[-1])
     except ImportError, e:
-        raise ImportError('module not found: %s (%s)' % ('.'.join(parts[:-1]), e))
+        raise ImportError("failed to import '%s':\n%s" % (module_name, traceback.format_exc()))
     except AttributeError, e:
-        raise ImportError('not found: %s (%s)' % (parts[-1], e))
+        raise ImportError("attribute '%s' not found in '%s':\n%s" % (attribute_name, module_name, traceback.format_exc()))
 
 def create_component(class_name):
     cls = load_code(class_name)
