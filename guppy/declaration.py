@@ -4,6 +4,7 @@
 from guppy.assertion import NoAssertion
 from guppy.broker import features
 
+
 class RequiredFeature(object):
 
     def __init__(self, feature, assertion = NoAssertion):

@@ -1,7 +1,9 @@
 #
 # vim:syntax=python:sw=4:ts=4:expandtab
 
+
 class FeatureBroker:
+
     def __init__(self, allowReplace=False):
         self.providers = {}
         self.allowReplace = allowReplace
@@ -19,5 +21,6 @@ class FeatureBroker:
         except KeyError:
             raise KeyError("Unknown feature named %r" % feature)
         return provider
+
 
 features = FeatureBroker()
