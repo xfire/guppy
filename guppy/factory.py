@@ -14,7 +14,7 @@ def load_code(path):
     attribute_name = parts[-1]
 
     try:
-        module = __import__(module_name, {}, {}, module_name)
+        module = __import__(module_name, {}, {}, [attribute_name], level=0)
         return getattr(module, parts[-1])
     except ImportError, e:
         raise ImportError("failed to import '%s':\n%s" % (module_name, traceback.format_exc()))
