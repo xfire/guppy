@@ -8,19 +8,22 @@ class FeatureBroker:
         self.providers = {}
         self.allowReplace = allowReplace
 
-    def Provide(self, feature, provider):
+    def Provide(self, feature, provider, *args, **kwargs):
         if not self.allowReplace:
             assert not feature in self.providers, \
                     "Duplicate feature: %r" % feature
-
-        self.providers[feature] = provider
+        if callable(provider):
+            call = lambda: provider(*args, **kwargs)
+        else:
+            call = lambda: provider
+        self.providers[feature] = call
 
     def __getitem__(self, feature):
         try:
             provider = self.providers[feature]
         except KeyError:
             raise KeyError("Unknown feature named %r" % feature)
-        return provider
+        return provider()
 
 
 features = FeatureBroker()
