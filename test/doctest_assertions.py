@@ -3,6 +3,79 @@
 # vim:syntax=python:sw=4:ts=4:expandtab
 
 """
+    test hasAttributes()
+    ---------------------
+
+    >>> from guppy import hasAttributes
+
+    >>> class Foo(object):
+    ...     def __init__(self):
+    ...         self.a = 23
+    ...         self.b = 42
+
+    >>> hasAttributes('a')(Foo())
+    True
+    >>> hasAttributes('b')(Foo())
+    True
+    >>> hasAttributes('a', 'b')(Foo())
+    True
+
+    >>> hasAttributes('c')(Foo())
+    False
+
+"""
+
+"""
+    test hasMethods()
+    -----------------
+
+    >>> from guppy import hasMethods
+
+    >>> class Bar(object):
+    ...     def a(self): return 23
+    ...     def b(self): return 42
+
+    >>> hasMethods('a')(Bar())
+    True
+    >>> hasMethods('b')(Bar())
+    True
+    >>> hasMethods('b', 'a')(Bar())
+    True
+
+    >>> hasMethods('c')(Bar())
+    False
+
+"""
+
+"""
+    test isInstanceOf()
+    -------------------
+
+    >>> from guppy import isInstanceOf
+
+    >>> class BA(object): pass
+    >>> class BB(object): pass
+    >>> class C(BA, BB): pass
+
+    >>> isInstanceOf(str)("test")
+    True
+    >>> isInstanceOf(list)([1,2,3])
+    True
+    >>> isInstanceOf(dict)(dict(a = 23))
+    True
+    >>> isInstanceOf(BA, BB, C)(C())
+    True
+
+    >>> isInstanceOf(int)("test")
+    False
+    >>> isInstanceOf(list)("test")
+    False
+    >>> isInstanceOf(BB, C)(BA())
+    False
+
+"""
+
+"""
     test implementProtocol()
     ------------------------
 
