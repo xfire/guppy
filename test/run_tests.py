@@ -23,7 +23,7 @@ for f in glob.glob('test*.py'):
 for dirname in ['create']:
     path = get_path(dirname)
     sys.path.insert(0, path)
-    suite.addTest(unittest.defaultTestLoader.loadTestsFromName(os.path.join(dirname, 'test')))
+    suite.addTest(unittest.defaultTestLoader.loadTestsFromName('.'.join((dirname, 'test'))))
 
 
 unittest.TextTestRunner(verbosity = 2).run(suite)
