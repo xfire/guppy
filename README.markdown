@@ -2,7 +2,7 @@ guppy - Dependency Injection Framework for Python
 =================================================
 
 guppy tries to provide a simple, intuitive and pythonic dependency
-injection / inversion of control framework.
+injection (inversion of control) framework.
 
 guppy is a derivered work of this [ioc pseudo container](http://code.activestate.com/recipes/413268/).
 
@@ -16,7 +16,7 @@ installation
 usage examples
 --------------
 
-every python object can be registered using the FeatureBroker 'features'
+every python object can be registered using the FeatureBroker `features`
 with a unique identifier.
 
     > import guppy
@@ -45,14 +45,14 @@ license
 authors
 -------
 
-* Rico Schiekel <fire@downgra.de>
-* Alexander Bernauer <alex@copton.net>
+* Rico Schiekel <fire at downgra dot de>
+* Alexander Bernauer <alex at copton dot net>
 
 
 similar projects
 ----------------
 
-* Strappy - http://github.com/asgeir/strappy/
-* SpringPython - http://springpython.webfactional.com/
-* snake-guice - http://code.google.com/p/snake-guice/
-* Pinsor - http://code.google.com/p/pinsor/
+* Strappy - <http://github.com/asgeir/strappy/>
+* SpringPython - <http://springpython.webfactional.com/>
+* snake-guice - <http://code.google.com/p/snake-guice/>
+* Pinsor - <http://code.google.com/p/pinsor/>
