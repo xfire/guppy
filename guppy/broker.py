@@ -4,14 +4,12 @@
 
 class FeatureBroker:
 
-    def __init__(self, allowReplace=False):
+    def __init__(self):
         self.providers = {}
-        self.allowReplace = allowReplace
 
     def Provide(self, feature, provider, *args, **kwargs):
-        if not self.allowReplace:
-            assert not feature in self.providers, \
-                    "Duplicate feature: %r" % feature
+        assert not feature in self.providers, \
+                "Duplicate feature: %r" % feature
         if callable(provider):
             call = lambda: provider(*args, **kwargs)
         else:
