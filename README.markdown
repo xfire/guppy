@@ -45,8 +45,8 @@ license
 authors
 -------
 
-* Rico Schiekel <fire at downgra dot de>
-* Alexander Bernauer <alex at copton dot net>
+* Rico Schiekel &lt;fire at downgra dot de&gt;
+* Alexander Bernauer &lt;alex at copton dot net&gt;
 
 
 similar projects
