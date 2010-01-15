@@ -37,5 +37,14 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(t2.param, 42)
 
 
+    def test_double_registration(self):
+        guppy.features.Provide('double', 42)
+        try:
+            guppy.features.Provide('double', 23)
+            self.fail()
+        except AssertionError:
+            pass
+
+
 if __name__ == '__main__':
     unittest.main()
