@@ -8,6 +8,12 @@ import glob
 import unittest
 import doctest
 
+# setup project
+src_path = os.path.dirname(os.path.realpath(__file__))
+src_path = os.path.realpath(os.path.join(src_path, '..'))
+sys.path.insert(0, src_path)
+
+
 def get_path(dirname):
     op = os.path
     return op.join(op.realpath(op.dirname(__file__)), dirname)
