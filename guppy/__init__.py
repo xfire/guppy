@@ -5,4 +5,5 @@ from guppy.broker import features
 from guppy.assertion import *
 from guppy.support import *
 from guppy.declaration import RequiredFeature
+from guppy.startup import startupNotification
 from factory import create

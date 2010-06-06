@@ -4,6 +4,7 @@
 from broker import features
 from support import Component
 import traceback
+import startup
 
 
 def load_code(path):
@@ -28,4 +29,5 @@ def create(config):
         else:
             features.Provide(key, value)
 
+    startup.notify()
     return features
